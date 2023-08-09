@@ -3,7 +3,7 @@
   "description": "Eloquent external events via API",
   "type": "laravel-plugin",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Yuriy Potemkin",

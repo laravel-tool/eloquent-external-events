@@ -13,11 +13,6 @@ trait ExternalEvents
         return 'default';
     }
 
-    protected static array $excludeExternalEvents = [
-        'booting',
-        'booted',
-    ];
-
     /**
      * @throws EloquentExternalEventsException
      */
@@ -27,7 +22,7 @@ trait ExternalEvents
             return false;
         }
 
-        if (in_array($event, self::$excludeExternalEvents)) {
+        if (in_array($event, config('eloquent_external_events.excluded_events', ['booting', 'booted', 'retrieved']))) {
             return $result;
         }
 
