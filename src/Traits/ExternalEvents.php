@@ -22,6 +22,10 @@ trait ExternalEvents
             return false;
         }
 
+        if (!config('eloquent_external_events.enabled', true)) {
+            return $result;
+        }
+
         if (in_array($event, config('eloquent_external_events.excluded_events', ['booting', 'booted', 'retrieved']))) {
             return $result;
         }

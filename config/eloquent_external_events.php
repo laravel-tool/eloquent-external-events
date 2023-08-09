@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'enabled' => env('ELOQUENT_EXTERNAL_EVENTS_ENABLED', true),
     'excluded_events' => [
         'booting',
         'booted',
