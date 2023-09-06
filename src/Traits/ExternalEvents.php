@@ -34,6 +34,7 @@ trait ExternalEvents
             $event,
             $this->externalModel(),
             $this->getKey(),
+            $this->getChanges(),
             $halt
         );
     }
@@ -41,7 +42,7 @@ trait ExternalEvents
     /**
      * @throws EloquentExternalEventsException
      */
-    protected function request($event, $modelType, $modelId, $halt)
+    protected function request($event, $modelType, $modelId, $changes, $halt)
     {
         $configPath = 'eloquent_external_events.connections.'.$this->getExternalEventConnectionName();
         $token = config($configPath.'.token');
@@ -54,6 +55,7 @@ trait ExternalEvents
                 'event' => $event,
                 'model_type' => $modelType,
                 'model_id' => $modelId,
+                'changes' => $changes,
                 'halt' => $halt,
             ]);
 
